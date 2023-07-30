@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import useInput from "./hooks/useInput";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const userName = useInput("");
+	const password = useInput("");
+	
+	
+
+	return (
+		<div>
+			<input type="text" placeholder="Имя" {...userName} />
+			<input type="password" placeholder="пароль" {...password}/>
+			<button
+				onClick={() => {
+					console.log(userName.value);
+					console.log(password.value);
+				}}
+			>
+				click
+			</button>
+		</div>
+	);
 }
 
 export default App;
